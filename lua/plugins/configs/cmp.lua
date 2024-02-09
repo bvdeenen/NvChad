@@ -46,6 +46,7 @@ end
 
 local options = {
   completion = {
+    autocomplete = false,
     completeopt = "menu,menuone",
   },
 
