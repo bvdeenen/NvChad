@@ -5,7 +5,7 @@ local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd" }
+local servers = { "html", "cssls", "tsserver", "clangd", "elixirls", }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -31,6 +31,13 @@ lspconfig.gopls.setup {
             },
         },
     },
+}
+
+lspconfig.elixirls.setup {
+  filetypes = { "ex", "exs" },
+  cmd= { "/home/bvdeenen/Downloads/elixir-ls/language_server.sh"},
+  on_attach = on_attach
+
 }
 
 lspconfig.jedi_language_server.setup {
