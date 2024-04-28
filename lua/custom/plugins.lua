@@ -4,6 +4,17 @@ local overrides = require("custom.configs.overrides")
 local plugins = {
 
   {
+    'stevearc/oil.nvim',
+    lazy = false,
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("oil").setup()
+    end,
+
+  },
+  {
     lazy = false,
     "tpope/vim-rhubarb",
   },

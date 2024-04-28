@@ -7,3 +7,4 @@
 -- })
 
 vim.opt_global.tildeop = true
+vim.opt.showtabline = 0
