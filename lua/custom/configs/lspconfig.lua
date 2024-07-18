@@ -5,7 +5,7 @@ local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "cssls", "tsserver", "clangd", "elixirls", }
+local servers = { "html", "gleam", "cssls", "tsserver", "clangd", "elixirls", }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -32,6 +32,11 @@ lspconfig.gopls.setup {
         },
     },
 }
+lspconfig.gleam.setup {
+  filetypes = { "gleam" },
+  cmd = { "/home/bvdeenen/bin/gleam-lsp.sh" },
+  on_attach = on_attach
+}
 
 lspconfig.elixirls.setup {
   filetypes = { "ex", "exs" },
@@ -43,3 +48,4 @@ lspconfig.elixirls.setup {
 lspconfig.jedi_language_server.setup {
 
 }
+

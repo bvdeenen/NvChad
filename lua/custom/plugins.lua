@@ -4,6 +4,29 @@ local overrides = require("custom.configs.overrides")
 local plugins = {
 
   {
+    'windwp/nvim-ts-autotag',
+    lazy = false,
+    config = function()
+      require('nvim-ts-autotag').setup({
+        opts = {
+          -- Defaults
+          enable_close = true, -- Auto close tags
+          enable_rename = true, -- Auto rename pairs of tags
+          enable_close_on_slash = false -- Auto close on trailing </
+        },
+        -- Also override individual filetype configs, these take priority.
+        -- Empty by default, useful if one of the "opts" global settings
+        -- doesn't work well in a specific filetype
+        per_filetype = {
+          -- ["html"] = {
+          --   enable_close = false
+          -- }
+        }
+      })
+    end
+
+  },
+  {
     'stevearc/oil.nvim',
     lazy = false,
     opts = {},
@@ -61,6 +84,8 @@ local plugins = {
       ensure_installed = {
         "gopls",
         "jedi-language-server",
+        "mypy",
+        "ruff",
       }
     }
   },
@@ -118,6 +143,16 @@ local plugins = {
       }
     end
   },
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  },
+
 
   -- All NvChad plugins are lazy-loaded by default
   -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`

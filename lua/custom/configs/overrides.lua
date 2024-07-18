@@ -2,6 +2,7 @@ local M = {}
 
 M.treesitter = {
   ensure_installed = {
+    "gleam",
     "vim",
     "lua",
     "css",
@@ -9,6 +10,7 @@ M.treesitter = {
     "typescript",
     "tsx",
     "c",
+    "html",
     "markdown",
     "markdown_inline",
     "elixir",
@@ -28,10 +30,12 @@ M.mason = {
     -- lua stuff
     "lua-language-server",
     "stylua",
+    "gleam",
 
     -- web dev stuff
     "css-lsp",
     "typescript-language-server",
+    "vscode-html-language-server",
     "deno",
     "prettier",
 

@@ -11,6 +11,10 @@ local default_plugins = {
       require("base46").load_all_highlights()
     end,
   },
+  {
+    "andymass/vim-matchup",
+    event = "BufReadPost",
+  },
 
   {
     "NvChad/ui",
